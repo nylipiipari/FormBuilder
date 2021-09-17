@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useState } from 'react';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
+import shortid from 'shortid';
+import produce from 'immer';
+import { SideBar } from './components/SideBar';
+import { Layout } from './components/Layout';
 
 function App() {
+  const [formFields, setFormFields] = useState([]);
+
+  const moveItem = useCallback(
+    item => {
+      setFormFields(
+        produce(draft => {
+          draft.push({
+            ...item,
+            id: shortid.generate(),
+          });
+        })
+      );
+    },
+    [setFormFields],
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <div className="App">
+        <div className="flex min-h-screen">
+          <Layout moveItem={moveItem} formFields={formFields} />
+          <SideBar />
+        </div>
+      </div>
+    </DndProvider>
   );
 }
 
