@@ -1,12 +1,12 @@
 import React from 'react';
-import { SideBarItem } from './SideBarItem';
+import { SidebarItem } from './SidebarItem';
 import { ITEMS } from '../constants';
 
-export const SideBar = () => {
+export const Sidebar = () => {
   return (
-    <div className="side-bar bg-gray-500 w-1/4 p-4">
+    <div className="sidebar bg-gray-500 w-1/4 p-4 grid grid-cols-2 gap-2 content-start">
       {Object.values(ITEMS).map(item => (
-        <SideBarItem key={item.id} item={item} />
+        <SidebarItem key={item.id} item={item} />
       ))}
     </div>
   )

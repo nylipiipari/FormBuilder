@@ -3,7 +3,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
 import shortid from 'shortid';
 import produce from 'immer';
-import { SideBar } from './components/SideBar';
+import { Sidebar } from './components/Sidebar';
 import { Layout } from './components/Layout';
 
 function App() {
@@ -23,12 +23,19 @@ function App() {
     [setFormFields],
   );
 
+  const handleClickGenerate = e => {
+    e.preventDefault();
+
+    console.log(formFields);
+  };
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="App">
         <div className="flex min-h-screen">
-          <Layout moveItem={moveItem} formFields={formFields} />
-          <SideBar />
+          <Layout moveItem={moveItem} formFields={formFields} setFormFields={setFormFields} />
+          <Sidebar />
+          <button onClick={handleClickGenerate}>Generate</button>
         </div>
       </div>
     </DndProvider>

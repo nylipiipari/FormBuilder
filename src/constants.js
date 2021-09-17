@@ -22,4 +22,12 @@ export const ITEMS = [
       name: 'Box',
     },
   },
+  {
+    id: shortid.generate(),
+    type: ITEM_TYPES.BOX,
+    component: {
+      type: 'box',
+      name: 'Box2',
+    },
+  },
 ];
