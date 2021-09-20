@@ -12,7 +12,7 @@ export const SidebarItem = ({ item }) => {
 
   return (
     <button ref={drag} className="sidebar__item bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" style={{ opacity: isDragging ? 0.5 : 1}}>
-      {item.component.name}
+      {item.type}
     </button>
   )
 }

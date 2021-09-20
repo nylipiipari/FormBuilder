@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
-export const LayoutItem = ({ id, text, index, moveLayoutItem }) => {
+export const LayoutItem = ({ id, text, index, moveLayoutItem, removeLayoutItem }) => {
   const ref = useRef(null);
 
   const [{ handlerId }, drop] = useDrop({
@@ -59,11 +59,17 @@ export const LayoutItem = ({ id, text, index, moveLayoutItem }) => {
 
   drag(drop(ref));
 
+  const handleRemoveItemClick = e => {
+    e.preventDefault();
+    removeLayoutItem(id);
+  }
+
   return (
-    <div ref={ref} className="layout__item cursor-move border-4 rounded border-blue-400 p-1 m-1" data-handler-id={handlerId}>
+    <div ref={ref} className="layout__item cursor-move border-4 rounded border-blue-400 p-1 m-1 flex" data-handler-id={handlerId}>
       <span className="layout__item__label">
         { text }
       </span>
+      <button className="layout__item__remove ml-auto bg-red-400 hover:bg-red-600 text-white w-8 h-8" onClick={handleRemoveItemClick}>X</button>
     </div>
   )
 }

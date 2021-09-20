@@ -13,6 +13,15 @@ export const Layout = ({ moveItem, formFields, setFormFields }) => {
     );
   };
 
+  const removeLayoutItem = itemId => {
+    setFormFields(
+      produce(draft => {
+        const index = draft.findIndex(item => item.id === itemId);
+        if (index !== -1) draft.splice(index, 1);
+      })
+    )
+  };
+
   const [{ isOver }, drop] = useDrop({
     accept: Object.values(ItemTypes),
     drop: item => {
@@ -30,7 +39,7 @@ export const Layout = ({ moveItem, formFields, setFormFields }) => {
       className="main w-3/4 p-4"
     >
       {formFields.map((formField, index) => (
-        <LayoutItem key={formField.id} id={formField.id} index={index} text={formField.component.name} moveLayoutItem={moveLayoutItem} />
+        <LayoutItem key={formField.id} id={formField.id} index={index} text={formField.type} moveLayoutItem={moveLayoutItem} removeLayoutItem={removeLayoutItem} />
       ))}
     </div>
   )

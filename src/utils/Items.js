@@ -4,26 +4,14 @@ import { ItemTypes } from "./ItemTypes";
 export const Items = [
   {
     id: shortid.generate(),
-    type: ItemTypes.TEXT,
-    component: {
-      type: "text",
-      name: 'Text',
-    },
+    type: ItemTypes.TEXT
   },
   {
     id: shortid.generate(),
-    type: ItemTypes.BOX,
-    component: {
-      type: 'box',
-      name: 'Box',
-    },
+    type: ItemTypes.BOX
   },
   {
     id: shortid.generate(),
-    type: ItemTypes.CHECKBOX,
-    component: {
-      type: 'checkbox',
-      name: 'Checkbox',
-    },
+    type: ItemTypes.CHECKBOX
   },
 ];
