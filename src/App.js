@@ -4,6 +4,8 @@ import { DndProvider } from 'react-dnd';
 import shortid from 'shortid';
 import produce from 'immer';
 import { Sidebar } from './components/Sidebar';
+import { SidebarActions } from './components/SidebarActions';
+import { SidebarItems } from './components/SidebarItems';
 import { Layout } from './components/Layout';
 
 function App() {
@@ -28,7 +30,10 @@ function App() {
       <div className="App">
         <div className="flex min-h-screen">
           <Layout moveItem={moveItem} formFields={formFields} setFormFields={setFormFields} />
-          <Sidebar formFields={formFields} />
+          <Sidebar>
+            <SidebarItems />
+            <SidebarActions formFields={formFields} />
+          </Sidebar>
         </div>
       </div>
     </DndProvider>

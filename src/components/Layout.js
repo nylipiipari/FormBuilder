@@ -1,7 +1,7 @@
 import produce from 'immer';
 import React from 'react';
 import { useDrop } from 'react-dnd';
-import { ITEM_TYPES } from '../constants';
+import { ItemTypes } from '../utils/ItemTypes';
 import { LayoutItem } from './LayoutItem';
 
 export const Layout = ({ moveItem, formFields, setFormFields }) => {
@@ -14,7 +14,7 @@ export const Layout = ({ moveItem, formFields, setFormFields }) => {
   };
 
   const [{ isOver }, drop] = useDrop({
-    accept: Object.values(ITEM_TYPES),
+    accept: Object.values(ItemTypes),
     drop: item => {
       moveItem(item);
     },

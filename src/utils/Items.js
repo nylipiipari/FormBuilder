@@ -1,22 +1,18 @@
 import shortid from "shortid";
+import { ItemTypes } from "./ItemTypes";
 
-export const ITEM_TYPES = {
-  BOX: 'box',
-  FIELD: 'field',
-};
-
-export const ITEMS = [
+export const Items = [
   {
     id: shortid.generate(),
-    type: ITEM_TYPES.FIELD,
+    type: ItemTypes.TEXT,
     component: {
-      type: "input",
-      name: 'Input Field',
+      type: "text",
+      name: 'Text',
     },
   },
   {
     id: shortid.generate(),
-    type: ITEM_TYPES.BOX,
+    type: ItemTypes.BOX,
     component: {
       type: 'box',
       name: 'Box',
@@ -24,10 +20,10 @@ export const ITEMS = [
   },
   {
     id: shortid.generate(),
-    type: ITEM_TYPES.BOX,
+    type: ItemTypes.CHECKBOX,
     component: {
-      type: 'box',
-      name: 'Box2',
+      type: 'checkbox',
+      name: 'Checkbox',
     },
   },
 ];
