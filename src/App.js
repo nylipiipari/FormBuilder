@@ -23,19 +23,12 @@ function App() {
     [setFormFields],
   );
 
-  const handleClickGenerate = e => {
-    e.preventDefault();
-
-    console.log(formFields);
-  };
-
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="App">
         <div className="flex min-h-screen">
           <Layout moveItem={moveItem} formFields={formFields} setFormFields={setFormFields} />
-          <Sidebar />
-          <button onClick={handleClickGenerate}>Generate</button>
+          <Sidebar formFields={formFields} />
         </div>
       </div>
     </DndProvider>

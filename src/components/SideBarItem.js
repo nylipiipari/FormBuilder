@@ -11,10 +11,8 @@ export const SidebarItem = ({ item }) => {
   });
 
   return (
-    <div ref={drag} className="sidebar__item rounded text-center cursor-move bg-blue-500 hover:bg-blue-600" style={{ opacity: isDragging ? 0.5 : 1}}>
-      <span className="sidebar__item__label text-gray-50">
-        {item.component.name}
-      </span>
-    </div>
+    <button ref={drag} className="sidebar__item bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" style={{ opacity: isDragging ? 0.5 : 1}}>
+      {item.component.name}
+    </button>
   )
 }
