@@ -32,7 +32,7 @@ function App() {
           <Layout moveItem={moveItem} formFields={formFields} setFormFields={setFormFields} />
           <Sidebar>
             <SidebarItems />
-            <SidebarActions formFields={formFields} />
+            <SidebarActions formFields={formFields} setFormFields={setFormFields} />
           </Sidebar>
         </div>
       </div>
